@@ -1,4 +1,4 @@
-# Taller_3_web# 📊 Dashboard Móvil - DataMobile
+# 📊 Dashboard Móvil - DataMobile
 
 **Taller N°3 - Introducción al Desarrollo Web Móvil**  
 Universidad Católica del Norte - Noviembre 2025
@@ -76,9 +76,11 @@ dashboard_mobile/
 ## 🚀 Instalación y Configuración
 
 ### **Requisitos Previos**
-- Node.js 20.9.0 o superior
-- npm o pnpm
+- **Node.js 20.9.0 o superior** ([Descargar aquí](https://nodejs.org/))
+- npm (incluido con Node.js)
 - Git
+
+> **Verificar versión de Node:** `node --version`
 
 ### **Paso 1: Clonar el Repositorio**
 
@@ -93,39 +95,79 @@ cd Taller_3_web/dashboard_mobile
 npm install
 ```
 
-**Importante:** Si hay errores de dependencias, usar:
+**⚠️ Si aparecen errores de dependencias:**
 ```bash
 npm install --legacy-peer-deps
 ```
 
+> **Nota:** La instalación puede tardar 2-3 minutos dependiendo de tu conexión
+
 ### **Paso 3: Configurar Variables de Entorno**
 
-La base de datos ya está configurada en `.env`, pero si necesitas usar tu propia BD:
+**El proyecto ya incluye un archivo `.env` configurado con la base de datos compartida.**
 
+✅ **No necesitas hacer nada adicional**, la base de datos ya está configurada y lista para usar.
+
+> **📌 Nota Importante:** La base de datos es compartida entre todos los integrantes del grupo. Los cambios que hagas (crear/editar/eliminar productos) serán visibles para todos.
+
+<details>
+<summary>🔧 <b>Opcional:</b> Usar tu propia base de datos</summary>
+
+Si prefieres usar tu propia base de datos PostgreSQL:
+
+1. Crea un archivo `.env` (o modifica el existente):
 ```env
 DATABASE_URL="postgresql://usuario:contraseña@host/nombre_bd?sslmode=require"
 ```
 
+2. Servicios recomendados para BD gratuita:
+   - [Neon](https://neon.tech/) (Recomendado)
+   - [Supabase](https://supabase.com/)
+   - [Railway](https://railway.app/)
+
+3. Ejecuta la configuración:
+```bash
+npm run db:setup
+```
+
+</details>
+
 ### **Paso 4: Configurar la Base de Datos**
 
-Ejecutar los siguientes comandos en orden:
+Ejecutar UN SOLO comando que hace todo:
 
 ```bash
-# Generar cliente Prisma
+npm run db:setup
+```
+
+Este comando automáticamente:
+- ✅ Genera el cliente Prisma
+- ✅ Ejecuta las migraciones de la BD
+- ✅ Crea 50 productos de prueba
+
+**Verificar que funcionó:**
+```bash
+npm run db:studio
+```
+Esto abrirá Prisma Studio en tu navegador donde podrás ver los 50 productos creados.
+
+<details>
+<summary>⚙️ <b>Alternativa:</b> Ejecutar comandos por separado</summary>
+
+Si prefieres ejecutar cada paso manualmente:
+
+```bash
+# 1. Generar cliente Prisma
 npm run db:generate
 
-# Ejecutar migraciones
+# 2. Ejecutar migraciones
 npm run db:migrate
 
-# Poblar con datos de prueba (50 productos)
+# 3. Poblar con datos de prueba
 npm run db:seed
 ```
 
-**Verificar que todo funcionó:**
-```bash
-# Abrir Prisma Studio para ver los datos
-npm run db:studio
-```
+</details>
 
 ### **Paso 5: Iniciar el Servidor de Desarrollo**
 
@@ -243,19 +285,44 @@ npm run db:generate
 ```
 
 ### **Error: "Port 3000 already in use"**
+Cambiar el puerto:
 ```bash
-# Cambiar el puerto
+# Windows
+set PORT=3001 && npm run dev
+
+# Mac/Linux
 PORT=3001 npm run dev
 ```
 
 ### **Error de conexión a la base de datos**
-1. Verificar que el `DATABASE_URL` en `.env` sea correcto
-2. Comprobar conexión a internet (la BD está en Neon)
-3. Ejecutar `npm run db:migrate`
+1. Verificar conexión a internet (la BD está en Neon cloud)
+2. Revisar que el `DATABASE_URL` en `.env` esté correcto
+3. Ejecutar nuevamente: `npm run db:setup`
 
-### **Los filtros no persisten**
+### **Los filtros no persisten al recargar**
 - Verificar que localStorage esté habilitado en el navegador
-- Revisar la consola del navegador por errores
+- Abrir DevTools (F12) → Console y buscar errores
+
+### **La página no carga / Pantalla en blanco**
+1. Verificar que Node.js sea versión 20.9+: `node --version`
+2. Limpiar cache y reinstalar:
+```bash
+rm -rf node_modules package-lock.json .next
+npm install
+npm run dev
+```
+
+### **Error: "peer dependency warnings"**
+Es normal, no afecta el funcionamiento. Si prefieres eliminarlos:
+```bash
+npm install --legacy-peer-deps
+```
+
+### **No aparecen productos en el dashboard**
+Ejecutar nuevamente el seed:
+```bash
+npm run db:seed
+```
 
 ---
 
