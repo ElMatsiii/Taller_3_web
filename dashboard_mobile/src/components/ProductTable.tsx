@@ -5,6 +5,7 @@ import { Product } from '@/store/slices/productSlice'
 import { Pencil, Trash2, Eye } from 'lucide-react'
 import { format } from 'date-fns'
 import { es } from 'date-fns/locale'
+import { useRouter } from 'next/navigation'
 
 interface ProductTableProps {
   products: Product[]
@@ -14,6 +15,7 @@ interface ProductTableProps {
 export default function ProductTable({ products, onRefresh }: ProductTableProps) {
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null)
   const [isDeleting, setIsDeleting] = useState(false)
+  const router = useRouter()
 
   const handleDelete = async (id: string) => {
     if (!confirm('¿Estás seguro de eliminar este producto?')) return
@@ -131,6 +133,13 @@ export default function ProductTable({ products, onRefresh }: ProductTableProps)
                       title="Eliminar"
                     >
                       <Trash2 className="w-4 h-4" />
+                    </button>
+                    <button
+                      onClick={() => router.push(`/productos/${product.id}`)}
+                      className="text-blue-600 hover:text-blue-800"
+                      title="Ver detalles"
+                    >
+                      <Eye className="w-4 h-4" />
                     </button>
                   </div>
                 </td>
