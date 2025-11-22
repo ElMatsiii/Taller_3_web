@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { Product } from '@/store/slices/productSlice'
-import { Pencil, Trash2, Eye } from 'lucide-react'
+import { Trash2, Eye, ExternalLink } from 'lucide-react'
 import { format } from 'date-fns'
 import { es } from 'date-fns/locale'
 import { useRouter } from 'next/navigation'
@@ -119,13 +119,25 @@ export default function ProductTable({ products, onRefresh }: ProductTableProps)
                 </td>
                 <td className="px-4 py-4 whitespace-nowrap text-sm">
                   <div className="flex items-center gap-2">
+                    {/* Botón Modal - Vista rápida */}
                     <button
                       onClick={() => setSelectedProduct(product)}
                       className="text-blue-600 hover:text-blue-800"
-                      title="Ver detalles"
+                      title="Vista rápida"
                     >
                       <Eye className="w-4 h-4" />
                     </button>
+                    
+                    {/* Botón Página completa - Navegación */}
+                    <button
+                      onClick={() => router.push(`/productos/${product.id}`)}
+                      className="text-purple-600 hover:text-purple-800"
+                      title="Ver página completa"
+                    >
+                      <ExternalLink className="w-4 h-4" />
+                    </button>
+                    
+                    {/* Botón Eliminar */}
                     <button
                       onClick={() => handleDelete(product.id)}
                       disabled={isDeleting}
@@ -133,13 +145,6 @@ export default function ProductTable({ products, onRefresh }: ProductTableProps)
                       title="Eliminar"
                     >
                       <Trash2 className="w-4 h-4" />
-                    </button>
-                    <button
-                      onClick={() => router.push(`/productos/${product.id}`)}
-                      className="text-blue-600 hover:text-blue-800"
-                      title="Ver detalles"
-                    >
-                      <Eye className="w-4 h-4" />
                     </button>
                   </div>
                 </td>
@@ -189,9 +194,17 @@ export default function ProductTable({ products, onRefresh }: ProductTableProps)
             <div className="flex gap-2">
               <button
                 onClick={() => setSelectedProduct(product)}
-                className="flex-1 px-3 py-2 bg-blue-50 text-blue-600 rounded-lg text-sm font-medium hover:bg-blue-100"
+                className="flex-1 px-3 py-2 bg-blue-50 text-blue-600 rounded-lg text-sm font-medium hover:bg-blue-100 flex items-center justify-center gap-2"
               >
-                Ver detalles
+                <Eye className="w-4 h-4" />
+                Vista rápida
+              </button>
+              <button
+                onClick={() => router.push(`/productos/${product.id}`)}
+                className="px-3 py-2 bg-purple-50 text-purple-600 rounded-lg text-sm font-medium hover:bg-purple-100"
+                title="Ver página completa"
+              >
+                <ExternalLink className="w-4 h-4" />
               </button>
               <button
                 onClick={() => handleDelete(product.id)}
@@ -218,7 +231,7 @@ export default function ProductTable({ products, onRefresh }: ProductTableProps)
           onClick={() => setSelectedProduct(null)}
         >
           <div
-            className="bg-white rounded-lg p-6 max-w-md w-full"
+            className="bg-white rounded-lg p-6 max-w-md w-full max-h-[90vh] overflow-y-auto"
             onClick={(e) => e.stopPropagation()}
           >
             <h3 className="text-xl font-bold text-gray-900 mb-4">
@@ -260,12 +273,25 @@ export default function ProductTable({ products, onRefresh }: ProductTableProps)
                 </p>
               </div>
             </div>
-            <button
-              onClick={() => setSelectedProduct(null)}
-              className="mt-6 w-full px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-lg transition-colors"
-            >
-              Cerrar
-            </button>
+            
+            <div className="flex gap-3 mt-6">
+              <button
+                onClick={() => setSelectedProduct(null)}
+                className="flex-1 px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-lg transition-colors"
+              >
+                Cerrar
+              </button>
+              <button
+                onClick={() => {
+                  setSelectedProduct(null)
+                  router.push(`/productos/${selectedProduct.id}`)
+                }}
+                className="flex-1 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors flex items-center justify-center gap-2"
+              >
+                <ExternalLink className="w-4 h-4" />
+                Ver completo
+              </button>
+            </div>
           </div>
         </div>
       )}

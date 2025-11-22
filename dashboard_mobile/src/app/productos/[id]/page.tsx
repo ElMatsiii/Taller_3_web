@@ -1,10 +1,10 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { useRouter } from 'next/navigation'
+import { useRouter, useParams } from 'next/navigation'
 import { format } from 'date-fns'
 import { es } from 'date-fns/locale'
-import { ArrowLeft, Edit, Trash2 } from 'lucide-react'
+import { ArrowLeft, Trash2 } from 'lucide-react'
 
 interface Product {
   id: string
@@ -18,56 +18,79 @@ interface Product {
   activo: boolean
 }
 
-export default function ProductDetailPage({ params }: { params: { id: string } }) {
+export default function ProductDetailPage() {
   const router = useRouter()
+  const params = useParams()
+  const id = params?.id as string // Extraer el id correctamente
+  
   const [product, setProduct] = useState<Product | null>(null)
   const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
+    if (!id) return
+
     const fetchProduct = async () => {
       try {
-        const res = await fetch(`/api/productos/${params.id}`)
+        setLoading(true)
+        const res = await fetch(`/api/productos/${id}`)
+        
         if (res.ok) {
           const data = await res.json()
           setProduct(data)
+          setError(null)
+        } else {
+          setError('Producto no encontrado')
         }
       } catch (error) {
         console.error('Error:', error)
+        setError('Error al cargar el producto')
       } finally {
         setLoading(false)
       }
     }
+    
     fetchProduct()
-  }, [params.id])
+  }, [id])
 
   const handleDelete = async () => {
-    if (!confirm('¿Estás seguro de eliminar este producto?')) return
+    if (!id || !confirm('¿Estás seguro de eliminar este producto?')) return
     
     try {
-      const res = await fetch(`/api/productos/${params.id}`, {
+      const res = await fetch(`/api/productos/${id}`, {
         method: 'DELETE',
       })
       if (res.ok) {
         router.push('/')
+      } else {
+        alert('Error al eliminar el producto')
       }
     } catch (error) {
       console.error('Error:', error)
+      alert('Error al eliminar el producto')
     }
   }
 
+  // Estado de carga
   if (loading) {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-        <div className="text-gray-500">Cargando...</div>
+        <div className="text-center">
+          <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mb-4"></div>
+          <p className="text-gray-500">Cargando producto...</p>
+        </div>
       </div>
     )
   }
 
-  if (!product) {
+  // Estado de error o producto no encontrado
+  if (error || !product) {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="text-center">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">Producto no encontrado</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">
+            {error || 'Producto no encontrado'}
+          </h2>
           <button
             onClick={() => router.push('/')}
             className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
