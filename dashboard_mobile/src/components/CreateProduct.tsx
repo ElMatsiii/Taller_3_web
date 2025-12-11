@@ -67,7 +67,7 @@ export default function CreateProduct({ onClose, onSuccess }: CreateProductProps
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-4">
-          {/* Nombre */}
+          {}
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">
               Nombre *
@@ -82,7 +82,7 @@ export default function CreateProduct({ onClose, onSuccess }: CreateProductProps
             />
           </div>
 
-          {/* Categoría */}
+          {}
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">
               Categoría *
@@ -101,7 +101,7 @@ export default function CreateProduct({ onClose, onSuccess }: CreateProductProps
             </select>
           </div>
 
-          {/* Precio */}
+          {}
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">
               Precio *
@@ -120,7 +120,7 @@ export default function CreateProduct({ onClose, onSuccess }: CreateProductProps
             />
           </div>
 
-          {/* Stock */}
+          {}
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">
               Stock *
@@ -138,7 +138,7 @@ export default function CreateProduct({ onClose, onSuccess }: CreateProductProps
             />
           </div>
 
-          {/* Ventas */}
+          {}
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">
               Ventas
@@ -155,7 +155,7 @@ export default function CreateProduct({ onClose, onSuccess }: CreateProductProps
             />
           </div>
 
-          {/* Rating */}
+          {}
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">
               Rating (0-5)
@@ -174,7 +174,7 @@ export default function CreateProduct({ onClose, onSuccess }: CreateProductProps
             />
           </div>
 
-          {/* Activo */}
+          {}
           <div className="flex items-center">
             <input
               type="checkbox"
@@ -190,7 +190,7 @@ export default function CreateProduct({ onClose, onSuccess }: CreateProductProps
             </label>
           </div>
 
-          {/* Botones */}
+          {}
           <div className="flex gap-3 pt-4">
             <button
               type="button"

@@ -30,7 +30,7 @@ interface AreaChartProps {
 }
 
 export default function AreaChartComponent({ products }: AreaChartProps) {
-  // Agrupar stock por categoría
+  
   const stockPorCategoria = products.reduce((acc, product) => {
     acc[product.categoria] = (acc[product.categoria] || 0) + product.stock
     return acc

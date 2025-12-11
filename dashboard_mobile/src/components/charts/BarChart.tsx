@@ -19,7 +19,7 @@ interface BarChartProps {
 }
 
 export default function BarChartComponent({ products }: BarChartProps) {
-  // Agrupar productos por categoría
+
   const categorias = products.reduce((acc, product) => {
     acc[product.categoria] = (acc[product.categoria] || 0) + 1
     return acc

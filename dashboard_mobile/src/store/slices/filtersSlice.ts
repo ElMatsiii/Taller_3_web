@@ -20,7 +20,6 @@ const initialState: FiltersState = {
   ordenDireccion: 'asc',
 }
 
-// Cargar filtros desde localStorage
 const loadFiltersFromStorage = (): FiltersState => {
   if (typeof window === 'undefined') return initialState
   
@@ -35,7 +34,6 @@ const loadFiltersFromStorage = (): FiltersState => {
   return initialState
 }
 
-// Guardar filtros en localStorage
 const saveFiltersToStorage = (state: FiltersState) => {
   if (typeof window === 'undefined') return
   

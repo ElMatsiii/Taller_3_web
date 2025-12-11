@@ -47,7 +47,7 @@ export default function ProductTable({ products, onRefresh }: ProductTableProps)
         </h2>
       </div>
 
-      {/* Tabla Desktop */}
+      {}
       <div className="hidden md:block overflow-x-auto">
         <table className="w-full">
           <thead className="bg-gray-50">
@@ -119,7 +119,7 @@ export default function ProductTable({ products, onRefresh }: ProductTableProps)
                 </td>
                 <td className="px-4 py-4 whitespace-nowrap text-sm">
                   <div className="flex items-center gap-2">
-                    {/* Botón Modal - Vista rápida */}
+                    {}
                     <button
                       onClick={() => setSelectedProduct(product)}
                       className="text-blue-600 hover:text-blue-800"
@@ -128,7 +128,7 @@ export default function ProductTable({ products, onRefresh }: ProductTableProps)
                       <Eye className="w-4 h-4" />
                     </button>
                     
-                    {/* Botón Página completa - Navegación */}
+                    {}
                     <button
                       onClick={() => router.push(`/productos/${product.id}`)}
                       className="text-purple-600 hover:text-purple-800"
@@ -137,7 +137,7 @@ export default function ProductTable({ products, onRefresh }: ProductTableProps)
                       <ExternalLink className="w-4 h-4" />
                     </button>
                     
-                    {/* Botón Eliminar */}
+                    {}
                     <button
                       onClick={() => handleDelete(product.id)}
                       disabled={isDeleting}
@@ -154,7 +154,7 @@ export default function ProductTable({ products, onRefresh }: ProductTableProps)
         </table>
       </div>
 
-      {/* Cards Mobile */}
+      {}
       <div className="md:hidden divide-y divide-gray-200">
         {products.map((product) => (
           <div key={product.id} className="p-4">
@@ -224,7 +224,7 @@ export default function ProductTable({ products, onRefresh }: ProductTableProps)
         </div>
       )}
 
-      {/* Modal de detalles */}
+      {}
       {selectedProduct && (
         <div
           className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50"

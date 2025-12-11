@@ -3,30 +3,30 @@
 **Taller N°3 - Introducción al Desarrollo Web Móvil**  
 Universidad Católica del Norte - Noviembre 2025
 
-## 👥 Información del Grupo
+##  Información del Grupo
 
-- **Grupo N°:** [COMPLETAR]
+- **Grupo N°:** [10]
 - **Integrantes:**
-  - [Nombre Completo] - RUT: [XX.XXX.XXX-X]
-  - [Nombre Completo] - RUT: [XX.XXX.XXX-X]
-  - [Nombre Completo] - RUT: [XX.XXX.XXX-X]
-
+  - [Matias Gutierrez] - RUT: [21.733.537-K]
+  - [Máximo Sazo] - RUT: [21.654.236-3]
+  - [Daniela Infanteo] - RUT: [21.446.602-3]
+  - [Maximiliano Pizarro] - RUT: [21.776.433-5]
 ---
 
-## 📝 Descripción del Proyecto
+##  Descripción del Proyecto
 
 Aplicación web móvil desarrollada con **Next.js** que permite visualizar y gestionar productos mediante un dashboard interactivo. El proyecto implementa:
 
-- 🎯 **CRUD completo** de productos
-- 📊 **5 tipos de gráficos** interactivos (Barras, Líneas, Torta, Área, Radar)
-- 🔍 **Filtros dinámicos** con persistencia
-- 📱 **Diseño Mobile First** totalmente responsivo
-- 🗄️ **PostgreSQL** como base de datos
-- 🔄 **Redux Toolkit** para gestión de estado
+-  **CRUD completo** de productos
+-  **5 tipos de gráficos** interactivos (Barras, Líneas, Torta, Área, Radar)
+-  **Filtros dinámicos** con persistencia
+-  **Diseño Mobile First** totalmente responsivo
+-  **PostgreSQL** como base de datos
+-  **Redux Toolkit** para gestión de estado
 
 ---
 
-## 🛠️ Tecnologías Utilizadas
+##  Tecnologías Utilizadas
 
 ### Frontend
 - **Next.js 16.0.3** - Framework React full-stack
@@ -43,7 +43,7 @@ Aplicación web móvil desarrollada con **Next.js** que permite visualizar y ges
 
 ---
 
-## 📦 Estructura del Proyecto
+##  Estructura del Proyecto
 
 ```
 dashboard_mobile/
@@ -73,7 +73,7 @@ dashboard_mobile/
 
 ---
 
-## 🚀 Instalación y Configuración
+##  Instalación y Configuración
 
 ### **Requisitos Previos**
 - **Node.js 20.9.0 o superior** ([Descargar aquí](https://nodejs.org/))
@@ -95,7 +95,7 @@ cd Taller_3_web/dashboard_mobile
 npm install
 ```
 
-**⚠️ Si aparecen errores de dependencias:**
+** Si aparecen errores de dependencias:**
 ```bash
 npm install --legacy-peer-deps
 ```
@@ -106,9 +106,9 @@ npm install --legacy-peer-deps
 
 **El proyecto ya incluye un archivo `.env` configurado con la base de datos compartida.**
 
-✅ **No necesitas hacer nada adicional**, la base de datos ya está configurada y lista para usar.
+ **No necesitas hacer nada adicional**, la base de datos ya está configurada y lista para usar.
 
-> **📌 Nota Importante:** La base de datos es compartida entre todos los integrantes del grupo. Los cambios que hagas (crear/editar/eliminar productos) serán visibles para todos.
+> ** Nota Importante:** La base de datos es compartida entre todos los integrantes del grupo. Los cambios que hagas (crear/editar/eliminar productos) serán visibles para todos.
 
 <details>
 <summary>🔧 <b>Opcional:</b> Usar tu propia base de datos</summary>
@@ -141,9 +141,9 @@ npm run db:setup
 ```
 
 Este comando automáticamente:
-- ✅ Genera el cliente Prisma
-- ✅ Ejecuta las migraciones de la BD
-- ✅ Crea 50 productos de prueba
+-  Genera el cliente Prisma
+-  Ejecuta las migraciones de la BD
+-  Crea 50 productos de prueba
 
 **Verificar que funcionó:**
 ```bash
@@ -152,7 +152,7 @@ npm run db:studio
 Esto abrirá Prisma Studio en tu navegador donde podrás ver los 50 productos creados.
 
 <details>
-<summary>⚙️ <b>Alternativa:</b> Ejecutar comandos por separado</summary>
+<summary> <b>Alternativa:</b> Ejecutar comandos por separado</summary>
 
 Si prefieres ejecutar cada paso manualmente:
 
@@ -191,10 +191,10 @@ La aplicación estará disponible en: **http://localhost:3000**
   - **Radar:** Rating promedio por categoría
 
 ### **2. Gestión de Productos**
-- ✅ **Crear** nuevos productos
-- 👁️ **Ver** detalles completos
-- ✏️ **Editar** información
-- 🗑️ **Eliminar** productos
+-  **Crear** nuevos productos
+-  **Ver** detalles completos
+-  **Editar** información
+-  **Eliminar** productos
 
 ### **3. Filtros Dinámicos (con persistencia)**
 - Filtrar por categoría
@@ -211,16 +211,16 @@ La aplicación estará disponible en: **http://localhost:3000**
 
 ---
 
-## 🎨 Diseño Responsivo
+##  Diseño Responsivo
 
 La aplicación se adapta a:
-- 📱 **Móviles** (< 768px): Cards y menús colapsables
-- 📱 **Tablets** (768px - 1024px): Layout intermedio
-- 💻 **Desktop** (> 1024px): Tabla completa y gráficos expandidos
+-  **Móviles** (< 768px): Cards y menús colapsables
+-  **Tablets** (768px - 1024px): Layout intermedio
+-  **Desktop** (> 1024px): Tabla completa y gráficos expandidos
 
 ---
 
-## 🔗 API Endpoints
+##  API Endpoints
 
 ### **Productos**
 
@@ -239,7 +239,7 @@ GET /api/productos?categoria=Electrónica&precioMin=100&precioMax=500&ordenPor=v
 
 ---
 
-## 📊 Modelo de Datos
+##  Modelo de Datos
 
 ```prisma
 model Producto {
@@ -257,7 +257,7 @@ model Producto {
 
 ---
 
-## 🧪 Scripts Disponibles
+##  Scripts Disponibles
 
 ```bash
 # Desarrollo
@@ -277,7 +277,7 @@ npm run start            # Iniciar en producción
 
 ---
 
-## ⚠️ Solución de Problemas Comunes
+##  Solución de Problemas Comunes
 
 ### **Error: "Cannot find module '@prisma/client'"**
 ```bash
@@ -326,7 +326,7 @@ npm run db:seed
 
 ---
 
-## 📚 Recursos Adicionales
+##  Recursos Adicionales
 
 - [Documentación Next.js](https://nextjs.org/docs)
 - [Redux Toolkit](https://redux-toolkit.js.org/)
@@ -336,13 +336,13 @@ npm run db:seed
 
 ---
 
-## 📄 Licencia
+##  Licencia
 
 Este proyecto fue desarrollado como parte del Taller N°3 de Desarrollo Web Móvil - UCN 2025.
 
 ---
 
-## 📧 Contacto
+##  Contacto
 
 **Profesores:**
 - Cristhian Rabi - cristhian.rabi@ce.ucn.cl

@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { prisma } from '../../../lib/prisma'
 import { z } from 'zod'
 
-// Schema de validación
+
 const ProductSchema = z.object({
   nombre: z.string().min(1),
   categoria: z.string().min(1),
@@ -13,7 +13,7 @@ const ProductSchema = z.object({
   activo: z.boolean().optional(),
 })
 
-// GET - Obtener todos los productos con filtros
+
 export async function GET(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url)
@@ -63,7 +63,7 @@ export async function GET(request: NextRequest) {
   }
 }
 
-// POST - Crear nuevo producto
+
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json()

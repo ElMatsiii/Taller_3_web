@@ -54,7 +54,7 @@ export default function Filters() {
           </select>
         </div>
 
-        {/* Precio Mínimo */}
+        {}
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">
             Precio Mín: ${filters.precioMin}
@@ -70,7 +70,7 @@ export default function Filters() {
           />
         </div>
 
-        {/* Precio Máximo */}
+        {}
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">
             Precio Máx: ${filters.precioMax}
@@ -86,7 +86,7 @@ export default function Filters() {
           />
         </div>
 
-        {/* Stock Mínimo */}
+        {}
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">
             Stock Mín: {filters.stockMin}
@@ -101,7 +101,7 @@ export default function Filters() {
           />
         </div>
 
-        {/* Solo Activos */}
+        {}
         <div className="flex items-center">
           <input
             type="checkbox"
@@ -115,7 +115,7 @@ export default function Filters() {
           </label>
         </div>
 
-        {/* Ordenar por */}
+        {}
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">
             Ordenar por
@@ -132,7 +132,7 @@ export default function Filters() {
           </select>
         </div>
 
-        {/* Dirección */}
+        {}
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">
             Dirección

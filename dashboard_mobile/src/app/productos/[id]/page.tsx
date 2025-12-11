@@ -21,7 +21,7 @@ interface Product {
 export default function ProductDetailPage() {
   const router = useRouter()
   const params = useParams()
-  const id = params?.id as string // Extraer el id correctamente
+  const id = params?.id as string 
   
   const [product, setProduct] = useState<Product | null>(null)
   const [loading, setLoading] = useState(true)
@@ -71,7 +71,7 @@ export default function ProductDetailPage() {
     }
   }
 
-  // Estado de carga
+ 
   if (loading) {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
@@ -83,7 +83,7 @@ export default function ProductDetailPage() {
     )
   }
 
-  // Estado de error o producto no encontrado
+ 
   if (error || !product) {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
@@ -104,7 +104,7 @@ export default function ProductDetailPage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Header */}
+      {}
       <header className="bg-white shadow-sm border-b">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <button
@@ -118,10 +118,10 @@ export default function ProductDetailPage() {
         </div>
       </header>
 
-      {/* Content */}
+      {}
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="bg-white rounded-lg shadow-sm border p-6">
-          {/* Header del producto */}
+          {}
           <div className="flex justify-between items-start mb-6">
             <div>
               <h2 className="text-3xl font-bold text-gray-900 mb-2">{product.nombre}</h2>
@@ -140,7 +140,7 @@ export default function ProductDetailPage() {
             </span>
           </div>
 
-          {/* Información principal */}
+          {}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
             <div className="bg-gray-50 p-4 rounded-lg">
               <p className="text-sm text-gray-500 mb-1">Precio</p>
@@ -160,7 +160,7 @@ export default function ProductDetailPage() {
             </div>
           </div>
 
-          {/* Información adicional */}
+          {}
           <div className="border-t pt-6 mb-6">
             <h3 className="text-lg font-semibold text-gray-900 mb-4">Información Adicional</h3>
             <div className="space-y-3">
@@ -183,7 +183,7 @@ export default function ProductDetailPage() {
             </div>
           </div>
 
-          {/* Estadísticas */}
+          {}
           <div className="border-t pt-6 mb-6">
             <h3 className="text-lg font-semibold text-gray-900 mb-4">Estadísticas</h3>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
@@ -208,7 +208,7 @@ export default function ProductDetailPage() {
             </div>
           </div>
 
-          {/* Acciones */}
+          {}
           <div className="border-t pt-6">
             <div className="flex flex-col sm:flex-row gap-3">
               <button

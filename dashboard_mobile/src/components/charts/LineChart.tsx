@@ -28,7 +28,6 @@ interface LineChartProps {
 }
 
 export default function LineChartComponent({ products }: LineChartProps) {
-  // Agrupar ventas por categoría
   const ventasPorCategoria = products.reduce((acc, product) => {
     acc[product.categoria] = (acc[product.categoria] || 0) + product.ventas
     return acc

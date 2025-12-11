@@ -12,7 +12,7 @@ const ProductSchema = z.object({
   activo: z.boolean().optional(),
 })
 
-// GET - Obtener un producto por ID
+
 export async function GET(
   request: NextRequest,
   { params }: { params: Promise<{ id: string }> }
@@ -40,7 +40,7 @@ export async function GET(
   }
 }
 
-// PUT - Actualizar producto
+
 export async function PUT(
   request: NextRequest,
   { params }: { params: Promise<{ id: string }> }
@@ -71,7 +71,7 @@ export async function PUT(
   }
 }
 
-// DELETE - Eliminar producto
+
 export async function DELETE(
   request: NextRequest,
   { params }: { params: Promise<{ id: string }> }

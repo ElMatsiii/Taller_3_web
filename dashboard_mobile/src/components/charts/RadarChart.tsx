@@ -28,7 +28,7 @@ interface RadarChartProps {
 }
 
 export default function RadarChartComponent({ products }: RadarChartProps) {
-  // Calcular promedios por categoría
+
   const categorias = ['Electrónica', 'Ropa', 'Alimentos', 'Hogar', 'Deportes']
   
   const promedios = categorias.map((cat) => {

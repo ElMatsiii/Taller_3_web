@@ -11,7 +11,6 @@ interface PieChartProps {
 }
 
 export default function PieChartComponent({ products }: PieChartProps) {
-  // Distribuir productos por estado (activo/inactivo)
   const activos = products.filter((p) => p.activo).length
   const inactivos = products.length - activos
 
