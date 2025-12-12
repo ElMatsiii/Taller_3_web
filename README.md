@@ -1,4 +1,4 @@
-# 📊 Dashboard Móvil - DataMobile
+#  Dashboard Móvil - DataMobile
 
 **Taller N°3 - Introducción al Desarrollo Web Móvil**  
 Universidad Católica del Norte - Noviembre 2025
@@ -179,7 +179,7 @@ La aplicación estará disponible en: **http://localhost:3000**
 
 ---
 
-## 📱 Funcionalidades Principales
+##  Funcionalidades Principales
 
 ### **1. Dashboard Principal**
 - Métricas generales (total productos, ventas, stock, precio promedio)
